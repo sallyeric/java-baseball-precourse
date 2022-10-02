@@ -1,6 +1,8 @@
 package controller;
 
+import View.GameConsoleView;
 import domain.GeneratedNumbers;
+import domain.InputNumbers;
 
 public class GameController {
 
@@ -11,6 +13,12 @@ public class GameController {
     }
 
     public void startGame() {
-        // todo: 게임 진행
+        String input = requestInput();
+        InputNumbers inputNumbers = new InputNumbers(input);
+    }
+
+    private String requestInput() {
+        GameConsoleView.printInputInstruction();
+        return GameConsoleView.getInput();
     }
 }
