@@ -15,12 +15,19 @@ public class GameController {
 
     public void startGame() {
         while(true) {
-            String input = requestInput();
-            InputNumbers inputNumbers = new InputNumbers(input);
-            EvaluatedResult evaluatedResult = new EvaluatedResult(generatedNumbers, inputNumbers);
-            GameConsoleView.printHint(evaluatedResult);
-            if(evaluatedResult.getResult().getStrike() == 3) break;
+            if(!playGame()) break;
         }
+    }
+
+    private boolean playGame() {
+        String input = requestInput();
+        InputNumbers inputNumbers = new InputNumbers(input);
+        EvaluatedResult evaluatedResult = new EvaluatedResult(generatedNumbers, inputNumbers);
+        GameConsoleView.printHint(evaluatedResult);
+        if(evaluatedResult.getResult().getStrike() == 3) {
+            return GameConsoleView.requestRestart();
+        }
+        return true;
     }
 
     private String requestInput() {

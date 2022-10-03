@@ -35,4 +35,12 @@ public class GameConsoleView {
             System.out.println(WIN_MESSAGE);
         }
     }
+
+    public static boolean requestRestart() {
+        System.out.println(RESTART_REQUEST_INSTRUCTION);
+        String restartInput = getInput();
+        if(restartInput.equals(RESTART)) return true;
+        if(restartInput.equals(QUIT)) return false;
+        throw new IllegalArgumentException(RESTART_VALUE_VALIDATION_EXCEPTION);
+    }
 }
