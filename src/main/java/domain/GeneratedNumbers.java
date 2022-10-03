@@ -16,7 +16,7 @@ public class GeneratedNumbers {
     private List<Integer> getRandomNumbers() {
         List<Integer> randomNumbers = new ArrayList<>();
         while(randomNumbers.size() < MAXIMUM_LENGTH) {
-            Integer randomNumber = Randoms.pickNumberInRange(MINUMUM_NUMBER, MAXIMUM_NUMBER);
+            int randomNumber = Randoms.pickNumberInRange(MINUMUM_NUMBER, MAXIMUM_NUMBER);
             validateRandomNumber(randomNumber);
             if(!randomNumbers.contains(randomNumber))
                 randomNumbers.add(randomNumber);
@@ -24,8 +24,16 @@ public class GeneratedNumbers {
         return randomNumbers;
     }
 
-    private void validateRandomNumber(Integer randomNumber) {
-        if (!(randomNumber >= MINUMUM_NUMBER && randomNumber <= MAXIMUM_NUMBER ))
-            throw new IllegalArgumentException("랜덤 숫자는 1에서 9 사이 값이어야 합니다.");
+    private void validateRandomNumber(int randomNumber) {
+        if (!(randomNumber >= MINUMUM_NUMBER && randomNumber <= MAXIMUM_NUMBER))
+            throw new IllegalArgumentException(NUMBERS_VALUE_VALIDATION_EXCEPTION);
+    }
+
+    public int getIndex(int number) {
+        return numbers.indexOf(number);
+    }
+
+    public boolean find(int number) {
+        return numbers.contains(number);
     }
 }
