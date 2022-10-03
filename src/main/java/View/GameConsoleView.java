@@ -23,11 +23,14 @@ public class GameConsoleView {
             System.out.print(NOTHING_MESSAGE);
         }
         if(ball != 0) {
-            System.out.println(ball + BALL_MESSAGE);
+            System.out.print(ball + BALL_MESSAGE);
         }
         if(strike != 0) {
-            System.out.println(strike + STRIKE_MESSAGE);
+            System.out.print(strike + STRIKE_MESSAGE);
         }
+
+        System.out.println();
+
         if (strike == 3) {
             System.out.println(WIN_MESSAGE);
         }
