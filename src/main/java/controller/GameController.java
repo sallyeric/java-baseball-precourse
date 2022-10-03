@@ -14,10 +14,13 @@ public class GameController {
     }
 
     public void startGame() {
-        String input = requestInput();
-        InputNumbers inputNumbers = new InputNumbers(input);
-        EvaluatedResult evaluatedResult = new EvaluatedResult(generatedNumbers, inputNumbers);
-        GameConsoleView.printHint(evaluatedResult);
+        while(true) {
+            String input = requestInput();
+            InputNumbers inputNumbers = new InputNumbers(input);
+            EvaluatedResult evaluatedResult = new EvaluatedResult(generatedNumbers, inputNumbers);
+            GameConsoleView.printHint(evaluatedResult);
+            if(evaluatedResult.getResult().getStrike() == 3) break;
+        }
     }
 
     private String requestInput() {
