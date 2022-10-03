@@ -7,27 +7,33 @@ import domain.InputNumbers;
 
 public class GameController {
 
-    private final GeneratedNumbers generatedNumbers;
+    private GeneratedNumbers generatedNumbers;
 
     public GameController() {
-        this.generatedNumbers = new GeneratedNumbers();
     }
 
     public void startGame() {
         while(true) {
-            if(!playGame()) break;
+            createGeneratedNumbers();
+            boolean isRestart = playGame();
+            if(!isRestart) break;
         }
     }
 
+    private void createGeneratedNumbers() {
+        this.generatedNumbers = new GeneratedNumbers();
+    }
+
     private boolean playGame() {
-        String input = requestInput();
-        InputNumbers inputNumbers = new InputNumbers(input);
-        EvaluatedResult evaluatedResult = new EvaluatedResult(generatedNumbers, inputNumbers);
-        GameConsoleView.printHint(evaluatedResult);
-        if(evaluatedResult.getResult().getStrike() == 3) {
-            return GameConsoleView.requestRestart();
+        while(true) {
+            String input = requestInput();
+            InputNumbers inputNumbers = new InputNumbers(input);
+            EvaluatedResult evaluatedResult = new EvaluatedResult(generatedNumbers, inputNumbers);
+            GameConsoleView.printHint(evaluatedResult);
+            if(evaluatedResult.getResult().getStrike() == 3) {
+                return GameConsoleView.requestRestart();
+            }
         }
-        return true;
     }
 
     private String requestInput() {
