@@ -5,8 +5,6 @@ import domain.EvaluatedResult;
 import domain.GeneratedNumbers;
 import domain.InputNumbers;
 
-import java.util.List;
-
 public class GameController {
 
     private final GeneratedNumbers generatedNumbers;
@@ -19,7 +17,7 @@ public class GameController {
         String input = requestInput();
         InputNumbers inputNumbers = new InputNumbers(input);
         EvaluatedResult evaluatedResult = new EvaluatedResult(generatedNumbers, inputNumbers);
-        //todo: Hint 만들기
+        GameConsoleView.printHint(evaluatedResult);
     }
 
     private String requestInput() {

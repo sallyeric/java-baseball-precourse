@@ -3,7 +3,7 @@ package domain;
 import java.util.List;
 
 public class EvaluatedResult {
-    Result result = new Result();
+    private Result result = new Result();
 
     public EvaluatedResult(GeneratedNumbers generatedNumbers, InputNumbers inputNumbers){
         this.result = getEvaluation(generatedNumbers, inputNumbers);
@@ -32,5 +32,9 @@ public class EvaluatedResult {
     }
     private boolean isBall(int number, GeneratedNumbers generatedNumbers) {
         return generatedNumbers.find(number);
+    }
+
+    public Result getResult() {
+        return result;
     }
 }
