@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.EvaluatedResult;
@@ -8,7 +8,7 @@ import static domain.constant.Constant.*;
 
 public class GameConsoleView {
     public static void printInputInstruction() {
-        System.out.print("숫자를 입력해주세요 : ");
+        System.out.print(INPUT_REQUEST_INSTRUCTION);
     }
 
     public static String getInput() {

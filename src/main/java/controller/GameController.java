@@ -1,6 +1,6 @@
 package controller;
 
-import View.GameConsoleView;
+import view.GameConsoleView;
 import domain.EvaluatedResult;
 import domain.GeneratedNumbers;
 import domain.InputNumbers;
